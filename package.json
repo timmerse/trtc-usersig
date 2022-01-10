@@ -1,6 +1,17 @@
 {
+  "name": "trtc-usersig",
+  "description": "SCF for generating userSig for TRTC",
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.1.1",
+    "koa2-cors": "^2.0.6",
     "moment": "^2.29.1",
     "tls-sig-api-v2": "^1.0.1"
+  },
+  "url" : "https://github.com/timmerse/trtc-usersig",
+  "scripts": {
+    "postinstall": "node bin/npm-postinstall"
   }
 }

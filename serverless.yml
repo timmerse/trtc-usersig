@@ -1,34 +1,33 @@
-app: getUserSig
+app: apaas
 stage: prod
 
-component: scf
-name: getUserSig
+component: http
+name: trtc-usersig
 
 inputs:
-  name: ${name}-${stage}-${app}
-  namespace: default
-  description: For https://cloud.tencent.com/document/product/647/17275
-  handler: index.main_handler
-  runtime: Nodejs12.16
-  region: ap-guangzhou
-  timeout: 30
   src: ./
-  environment:
-    variables:
-      TRTC_SDK_APPID: ${env:TRTC_SDK_APPID}
-      TRTC_SECRET_KEY: ${env:TRTC_SECRET_KEY}
-  events:
-    - apigw:
-        parameters:
-          environment: release
-          endpoints:
-            - path: /
-              method: ANY # GET POST PUT DELETE HEAD ANY
-              enableCORS: true
-              responseType: JSON
-          protocols:
-            - http
-            - https
+  region: ap-guangzhou
+  faas:
+    runtime: Nodejs12.16
+    framework: koa
+    name: ${name}-${stage}-${app}
+    timeout: 10
+    environments:
+      - key: TRTC_TIM_APPID
+        value: ${env:TRTC_TIM_APPID}
+      - key: TRTC_TIM_SECRET
+        value: ${env:TRTC_TIM_SECRET}
+  apigw:
+    isDisabled: false
+    environment: release
+    api:
+      path: /
+      cors: true
+      timeout: 30
+      qualifier: $DEFAULT
+    protocols:
+      - http
+      - https
 
-# https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md
+# https://github.com/serverless-components/tencent-http/blob/master/docs/configure.md
 

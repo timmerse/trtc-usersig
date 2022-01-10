@@ -2,16 +2,36 @@
 
 SCF for [generating userSig](https://cloud.tencent.com/document/product/647/17275) for TRTC.
 
-## Usage
+## Develop
 
 First, setup the `.env` environment:
 
 ```
-TENCENT_SECRET_ID=xxxxxxxxx
-TENCENT_SECRET_KEY=xxxxxxxxx
+TRTC_TIM_APPID=xxxxxxxxx
+TRTC_TIM_SECRET=xxxxxxxxx
+```
 
-TRTC_SDK_APPID=xxxxxxxxx
-TRTC_SECRET_KEY=xxxxxxxxx
+Please install depends:
+
+```bash
+npm install
+```
+
+Run locally by:
+
+```
+node .
+```
+
+Open te HTTP-API: http://localhost:9000/?userId=1000
+
+## Production
+
+First, setup the `.env` environment:
+
+```
+TRTC_TIM_APPID=xxxxxxxxx
+TRTC_TIM_SECRET=xxxxxxxxx
 ```
 
 Please install depends:
