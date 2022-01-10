@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "moment": "^2.29.1",
+    "tls-sig-api-v2": "^1.0.1"
+  }
+}
