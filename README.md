@@ -2,30 +2,9 @@
 
 SCF for [generating userSig](https://cloud.tencent.com/document/product/647/17275) for TRTC.
 
-## Develop
-
-首先，设置环境变量`.env`:
-
-```
-TRTC_TIM_APPID=xxxxxxxxx
-TRTC_TIM_SECRET=xxxxxxxxx
-```
-
-安装依赖：
-
-```bash
-npm install
-```
-
-运行本地服务：
-
-```
-node .
-```
-
-浏览器打开地址，可以看到生成的TRTC的userSig： http://localhost:9000/?userId=1000
-
 ## Production
+
+推荐使用云函数发布到线上环境，也可以和自己的服务发布在一起。
 
 首先，需要开通腾讯云资源：
 
@@ -61,6 +40,31 @@ sls deploy
 浏览器打开地址: https://service-xxx-xxx.gz.apigw.tencentcs.com/?userId=user001
 
 > 注意上面网关的地址和HTTPS证书都是API网关自动生成的，可以在发布的日志中看到.
+
+## Develop
+
+这个项目使用的是Nodejs的KOA框架，也可以本地运行。
+
+首先，设置环境变量`.env`:
+
+```
+TRTC_TIM_APPID=xxxxxxxxx
+TRTC_TIM_SECRET=xxxxxxxxx
+```
+
+安装依赖：
+
+```bash
+npm install
+```
+
+运行本地服务：
+
+```
+node .
+```
+
+浏览器打开地址，可以看到生成的TRTC的userSig： http://localhost:9000/?userId=1000
 
 2021.09
 
